@@ -1,22 +1,22 @@
     $( document ).ready(function() {
         "use strict";
-        
+
           // NAV
         $('.button-collapse').sideNav({
             closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
             }
          );
-    
+
         $('#example-one').onePageNav({
           changeHash: true,
           scrollSpeed: 750,
           scrollThreshold: 0.5,
           filter: ':not(.external)'
         });
-            
+
         $('a[href^="#"].inpage-scroll, .inpage-scroll a[href^="#"]').on('click', function(e) {
             e.preventDefault();
-    
+
             var target = this.hash,
                 $target = $(target);
             $('.main-navigation a[href="' + target + '"]').addClass('active');
@@ -27,29 +27,26 @@
                 window.location.hash = target;
             });
         });
-    
-    /**************************************************************************
-            Style demo
-    **************************************************************************/
 
 
-		 //Portfolio 
+
+		 //Portfolio
         $('#portfolio-item').mixItUp();
-        
+
         // Sticky nav
         $("#sticky-nav").sticky({topSpacing:0});
-        
+
         //Skills
         $(".determinate").each(function(){
             var width = $(this).text();
             $(this).css("width", width)
                 .empty()
-                .append('<i class="fa fa-circle"></i>');                
+                .append('<i class="fa fa-circle"></i>');
         });
-            
+
         //Conatct
         $('select').material_select();
-        
+
         // Smooth Scroll
         $(function() {
           $('a[href*=#]:not([href=#])').click(function() {
@@ -65,7 +62,7 @@
             }
           });
         });
-        
+
         // Blog
         jQuery(window).on('load', function(){ var $ = jQuery;
             $('.blog').masonry({
@@ -74,7 +71,7 @@
               percentPosition: true
             });
         });
-        
+
         // Contact form
         $("#contactForm").validator().on("submit", function (event) {
             if (event.isDefaultPrevented()) {
@@ -111,7 +108,7 @@
             submitMSG(true, "Message Sent!")
         }
         function formError(){
-            $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', 
+            $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
             function(){
               $(this).removeClass();
             });
@@ -124,14 +121,14 @@
             }
             $("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
         }
-        
+
       //Tooltip
         $('.tooltipped').tooltip({delay: 50});
-        
+
       //wow
         new WOW().init();
-   
-        
+
+
         $('.sa-view-project-detail').on('click', function(event) {
             event.preventDefault();
             var href          = $(this).attr('href') + ' ' + $(this).attr('data-action'),
